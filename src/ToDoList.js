@@ -9,13 +9,24 @@ const ToDoList = () => {
                 <button class="btn btn-primary me-5" type="submit">登録</button>
             </div>
         </nav>
-        <ul class="text-center list-unstyled ">
-            <li class="col-md-8 border p-2 m-4">ToDo1</li>
-            <li class="col-md-8 border p-2 m-4">ToDo2</li>
-            <li class="col-md-8 border p-2 m-4">ToDo3</li>
-            <li class="col-md-8 border p-2 m-4">ToDo4</li>
-            <li class="col-md-8 border p-2 m-4">ToDo5</li>
-        </ul>
+        <dl class="list-unstyled">
+            <dt class="col-md-8 border text-center m-auto mt-4 p-2">
+                ToDo1
+                <button class="btn btn-primary btn-sm" type="submit">削除</button>
+            </dt>
+            <dd class="col-md-8 border m-auto p-2">
+                <p class="text-left">ここに内容テーブルが入ります。</p>
+                <div class="">
+                    <button class="btn btn-primary btn-sm" type="submit">編集</button>
+                </div>
+            </dd>
+            <dt class="col-md-8 border m-auto mt-4 p-2">ToDo2</dt>
+            <dd class="col-md-8 border m-auto p-2">ここに内容テーブルが入ります。</dd>
+            <dt class="col-md-8 border m-auto mt-4 p-2">ToDo3</dt>
+            <dd class="col-md-8 border m-auto p-2">ここに内容テーブルが入ります。</dd>
+            <dt class="col-md-8 border m-auto mt-4 p-2">ToDo4</dt>
+            <dd class="col-md-8 border m-auto p-2">ここに内容テーブルが入ります。</dd>
+        </dl>
     </div>
     )
 }
