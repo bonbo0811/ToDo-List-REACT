@@ -10,22 +10,46 @@ const ToDoList = () => {
             </div>
         </nav>
         <dl class="list-unstyled">
-            <dt class="col-md-8 border text-center m-auto mt-4 p-2">
-                ToDo1
-                <button class="btn btn-primary btn-sm" type="submit">削除</button>
+            <dt class="col-md-8 border text-center m-auto mt-4 p-2 d-flex">
+                <span class="col-md10 m-auto">ToDo1</span>
+                <button class="btn btn-warning btn-sm me-4" type="submit">削除</button>
             </dt>
             <dd class="col-md-8 border m-auto p-2">
-                <p class="text-left">ここに内容テーブルが入ります。</p>
-                <div class="">
-                    <button class="btn btn-primary btn-sm" type="submit">編集</button>
+                <p class="p-3">ここに内容テーブルが入ります。</p>
+                <div class=" d-flex">
+                    <button class="btn btn-secondary btn-sm ms-auto me-4" type="submit">編集</button>
                 </div>
             </dd>
-            <dt class="col-md-8 border m-auto mt-4 p-2">ToDo2</dt>
-            <dd class="col-md-8 border m-auto p-2">ここに内容テーブルが入ります。</dd>
-            <dt class="col-md-8 border m-auto mt-4 p-2">ToDo3</dt>
-            <dd class="col-md-8 border m-auto p-2">ここに内容テーブルが入ります。</dd>
-            <dt class="col-md-8 border m-auto mt-4 p-2">ToDo4</dt>
-            <dd class="col-md-8 border m-auto p-2">ここに内容テーブルが入ります。</dd>
+            <dt class="col-md-8 border text-center m-auto mt-4 p-2 d-flex">
+                <span class="col-md10 m-auto">ToDo2</span>
+                <button class="btn btn-warning btn-sm me-4" type="submit">削除</button>
+            </dt>
+            <dd class="col-md-8 border m-auto p-2">
+                <p class="p-3">ここに内容テーブルが入ります。</p>
+                <div class=" d-flex">
+                    <button class="btn btn-secondary btn-sm ms-auto me-4" type="submit">編集</button>
+                </div>
+            </dd>
+            <dt class="col-md-8 border text-center m-auto mt-4 p-2 d-flex">
+                <span class="col-md10 m-auto">ToDo3</span>
+                <button class="btn btn-warning btn-sm me-4" type="submit">削除</button>
+            </dt>
+            <dd class="col-md-8 border m-auto p-2">
+                <p class="p-3">ここに内容テーブルが入ります。</p>
+                <div class=" d-flex">
+                    <button class="btn btn-secondary btn-sm ms-auto me-4" type="submit">編集</button>
+                </div>
+            </dd>
+            <dt class="col-md-8 border text-center m-auto mt-4 p-2 d-flex">
+                <span class="col-md10 m-auto">ToDo4</span>
+                <button class="btn btn-warning btn-sm me-4" type="submit">削除</button>
+            </dt>
+            <dd class="col-md-8 border m-auto p-2">
+                <p class="p-3">ここに内容テーブルが入ります。</p>
+                <div class=" d-flex">
+                    <button class="btn btn-secondary btn-sm ms-auto me-4" type="submit">編集</button>
+                </div>
+            </dd>
         </dl>
     </div>
     )
