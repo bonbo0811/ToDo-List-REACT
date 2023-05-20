@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 
 const Register = () => {
     return (
@@ -6,7 +9,7 @@ const Register = () => {
         <div>
             <nav class="navbar navbar-light bg-light">
                 <div class="container-fluid">
-                    <span class="navbar-brand p-3 h1 m-auto ps-5">ToDoリスト</span>
+                    <Link class="navbar-brand p-3 h1 m-auto ps-5" to="/">ToDoリスト</Link>
                     <button class="btn btn-primary me-5" type="submit">登録</button>
                 </div>
             </nav>
@@ -20,7 +23,7 @@ const Register = () => {
                         <div class="col-md-11 m-auto mb-1">
                             <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="内容テーブルに追加するデータを記入する" rows="6"></textarea>
                         </div>
-                        <button class="btn btn-secondary btn-sm m-3" type="submit">戻る</button>
+                        <button class="btn btn-secondary btn-sm m-3"  onClick={() => this.props.history.goBack()} type="submit">戻る</button>
                         <button class="btn btn-secondary btn-sm m-3" type="submit">登録</button>
                     </div>
                 </dd>

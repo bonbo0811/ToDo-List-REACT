@@ -7,7 +7,7 @@ const Edit = () => {
         <div>
             <nav class="navbar navbar-light bg-light">
                 <div class="container-fluid">
-                    <span class="navbar-brand p-3 h1 m-auto ps-5">ToDoリスト</span>
+                    <Link class="navbar-brand p-3 h1 m-auto ps-5" to="/">ToDoリスト</Link>
                     <Link to="/"><button class="btn btn-primary me-5" type="submit">登録</button></Link>
                 </div>
             </nav>
