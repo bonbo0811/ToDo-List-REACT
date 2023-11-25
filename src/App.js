@@ -1,7 +1,7 @@
-import ToDoList from './ToDoList';
+import ToDoList from './components/ApiFetch';
 import Register from './register';
-import TodoEdit from './editpage';
-import TodoDelete from './deletepage';
+import TodoEdit from './components/editpage';
+import TodoDelete from './components/deletepage';
 import NoMatch from './nomatch';
 import './App.css';
 import { Routes, Route } from "react-router-dom";
