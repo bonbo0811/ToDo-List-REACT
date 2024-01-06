@@ -27,12 +27,12 @@ export const ApiFetch = () => {
 				{ todos.length && todos.map(m => <dl key={m.id}>
 					<dt class="col-md-8 border text-center m-auto mt-4 p-2 d-flex">
 						<span class="col-md10 m-auto">{m.name}</span>
-						<Link class="btn btn-warning btn-sm me-4" to="/Delete">削除</Link>
+						<Link class="btn btn-warning btn-sm me-4" to={'/Delete/' + m.id}>削除</Link>
 					</dt>
 					<dd class="col-md-8 border m-auto p-2">
 						<p class="p-3">{m.content}</p>
 						<div class=" d-flex">
-							<Link class="btn btn-secondary btn-sm ms-auto me-4" to ="/Edit">編集</Link>
+							<Link class="btn btn-secondary btn-sm ms-auto me-4" to ={'/Edit/' + m.id}>編集</Link>
 						</div>
 					</dd>
 				</dl>) }

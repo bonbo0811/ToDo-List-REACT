@@ -1,5 +1,5 @@
 import ToDoList from './components/ApiFetch';
-import Register from './register';
+import Register from './components/register';
 import TodoEdit from './components/editpage';
 import TodoDelete from './components/deletepage';
 import NoMatch from './nomatch';
@@ -12,8 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<ToDoList />} />
           <Route path="/Register" element={<Register />} />
-          <Route path="/Edit" element={<TodoEdit />} />
-          <Route path="/Delete" element={<TodoDelete />} />
+          <Route path="/Edit/:id" element={<TodoEdit />} />
+          <Route path="/Delete/:id" element={<TodoDelete />} />
           <Route path="*" element={<NoMatch message="Hello Contact" />} />
       </Routes>
       </div>

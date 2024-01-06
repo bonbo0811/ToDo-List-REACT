@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 
 export const Edit = () => {
 	const [todos, setTodo] = useState([]);
+    const { id } = useParams();
+    const searchNo = id - 1;
 
 	useEffect(() => {
 		// APIをfetchする(呼び出す)
 		// fetch("http://localhost:8080/Hello/ones", { method: "GET" })
-		fetch("http://localhost:8080/todo/ones", { method: "GET" })
+		fetch("http://localhost:8080/todo/all", { method: "GET" })
 			// レスポンスのデータ形式をjsonに設定
 			.then((res) => res.json())
 			// APIから渡されるレスポンスデータ(data)をstateにセットする
 			.then((data) => {
-				setTodo(data);
+				setTodo(data[searchNo]);
 			});
 	}, []);
 
