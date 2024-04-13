@@ -12,8 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<ToDoList />} />
           <Route path="/Register" element={<Register />} />
-          <Route path="/Edit/:id" element={<TodoEdit />} />
-          <Route path="/Delete/:id" element={<TodoDelete />} />
+          <Route path="/Edit/id/:id" element={<TodoEdit />} />
+          <Route path="/Delete/id/:id" element={<TodoDelete />} />
           <Route path="*" element={<NoMatch message="Hello Contact" />} />
       </Routes>
       </div>
