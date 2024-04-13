@@ -5,17 +5,19 @@ import { useParams } from 'react-router-dom';
 export const Delete = () => {
 	const [todos, setTodo] = useState([]);
     const { id } = useParams();
-    const searchNo = id - 1;
+    const searchNo = id ;
+    
 
 	useEffect(() => {
 		// APIをfetchする(呼び出す)
-		// fetch("http://localhost:8080/Hello/ones", { method: "GET" })
-		fetch("http://localhost:8080/todo/all", { method: "GET" })
+        const query_params = new URLSearchParams(searchNo); 
+		fetch('http://localhost:8080/todo/id/' + searchNo, { method: "GET" })
 			// レスポンスのデータ形式をjsonに設定
 			.then((res) => res.json())
 			// APIから渡されるレスポンスデータ(data)をstateにセットする
 			.then((data) => {
-				setTodo(data[searchNo]);
+                setTodo(data);
+                console.log(data);
 			});
 	}, []);
 
@@ -39,7 +41,7 @@ export const Delete = () => {
                                 <h5>{todos.name}</h5>  
                                 <p className="text-center">{todos.content}</p>
                             </div>
-                            <button class="btn btn-secondary btn-sm m-3" type="submit">戻る</button>
+                            <Link class="btn btn-secondary btn-sm m-3" to="/">戻る</Link>
                             <button class="btn btn-secondary btn-sm m-3" type="submit">削除</button>
                         </div>
                     </dd>

@@ -2,22 +2,38 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useState, ChangeEventHandler, FormEventHandler } from "react";
+import { Button } from 'bootstrap';
 
 
 const Register = () => {
-    const [contentName, setcontentName] = useState("");
+    const [name, setname] = useState("");
     const [content, setcontent] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log({
-            contentName,
+            name,
             content,
+        });
+          // POST送信
+            fetch("http://localhost:8080/todo/jsontest", {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+            name: name,
+            content: content,
+            })  
+        }).then(function(response) {
+            console.log("成功しました")
+        }, function(error) {
+            console.log("失敗です")
         });
     };
 
     const handleChangeContentName = (e) => {
-        setcontentName(e.target.value);
+        setname(e.target.value);
     };
 
     const handleChangeContent = (e) => {
@@ -25,39 +41,39 @@ const Register = () => {
     };
 
     return (
-    <form  onSubmit={handleSubmit}>
         <div>
             <div>
                 <nav class="navbar navbar-light bg-light">
                     <div class="container-fluid">
                         <Link class="navbar-brand p-3 h1 m-auto ps-5" to="/">ToDoリスト</Link>
-                        <button class="btn btn-primary me-5" type="submit">登録</button>
+                        <Link class="btn btn-primary me-5" to="/Register">登録</Link>
                     </div>
                 </nav>
-                <dl class="list-unstyled">
-                    <dt class="col-md-8 border text-center m-auto mt-4 p-2 d-flex">
-                        <span class="col-md10 m-auto">登録内容</span>
-                    </dt>
-                    <dd class="col-md-8 border m-auto p-2">
-                        <p class="text-center">登録名</p>
-                        <div class="text-center">
-                            <div class="col-md-11 m-auto mb-1">
-                                <input class="form-control" type="Text" placeholder="例：勉強" value={contentName} onChange={handleChangeContentName}></input>
+                <form method='POST' onSubmit={handleSubmit} action="@{/add}" object="${addtodo}">
+                    <dl class="list-unstyled">
+                        <dt class="col-md-8 border text-center m-auto mt-4 p-2 d-flex">
+                                <span class="col-md10 m-auto">登録内容</span>
+                        </dt>
+                        <dd class="col-md-8 border m-auto p-2">
+                            <p class="text-center">登録名</p>
+                            <div class="text-center">
+                                <div class="col-md-11 m-auto mb-1">
+                                        <input class="form-control" type="Text" placeholder="例：勉強" value={name} onChange={handleChangeContentName}></input>
+                                </div>
                             </div>
-                        </div>
-                        <p class="text-center">新規登録</p>
-                        <div class="text-center">
-                            <div class="col-md-11 m-auto mb-1">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" value={content} onChange={handleChangeContent} placeholder="内容テーブルに追加するデータを記入する" rows="6"></textarea>
+                            <p class="text-center">新規登録</p>
+                                <div class="text-center">
+                                <div class="col-md-11 m-auto mb-1">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" value={content} onChange={handleChangeContent} placeholder="内容テーブルに追加するデータを記入する" rows="6"></textarea>
+                                </div>
+                                <Link class="btn btn-secondary btn-sm m-3" to="/">戻る</Link>
+                                <button class="btn btn-secondary btn-sm m-3" type="submit">登録</button>
                             </div>
-                            <button class="btn btn-secondary btn-sm m-3"  onClick={() => this.props.history.goBack()} type="submit">戻る</button>
-                            <button class="btn btn-secondary btn-sm m-3" type="submit">登録</button>
-                        </div>
-                    </dd>
-                </dl>
+                        </dd>
+                    </dl>
+                </form>
             </div>
         </div>
-    </form>
     )
 }
 
