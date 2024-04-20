@@ -11,10 +11,6 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log({
-            name,
-            content,
-        });
           // POST送信
             fetch("http://localhost:8080/todo/jsontest", {
             method: 'POST',
@@ -49,7 +45,7 @@ const Register = () => {
                         <Link class="btn btn-primary me-5" to="/Register">登録</Link>
                     </div>
                 </nav>
-                <form method='POST' onSubmit={handleSubmit} action="@{/add}" object="${addtodo}">
+                <form method='POST' onSubmit={handleSubmit}>
                     <dl class="list-unstyled">
                         <dt class="col-md-8 border text-center m-auto mt-4 p-2 d-flex">
                                 <span class="col-md10 m-auto">登録内容</span>
@@ -67,7 +63,7 @@ const Register = () => {
                                         <textarea class="form-control" id="exampleFormControlTextarea1" value={content} onChange={handleChangeContent} placeholder="内容テーブルに追加するデータを記入する" rows="6"></textarea>
                                 </div>
                                 <Link class="btn btn-secondary btn-sm m-3" to="/">戻る</Link>
-                                <button class="btn btn-secondary btn-sm m-3" type="submit">登録</button>
+                                <button class="btn btn-secondary btn-sm m-3" type="submit" >登録</button>
                             </div>
                         </dd>
                     </dl>
