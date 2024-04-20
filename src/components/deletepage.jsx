@@ -21,6 +21,20 @@ export const Delete = () => {
 			});
 	}, []);
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+          // POST送信
+            const query_params = new URLSearchParams(searchNo); 
+            fetch('http://localhost:8080/todo/delete/'+ searchNo, {
+            method: 'GET',
+            
+        }).then(function(response) {
+            console.log("成功しました")
+        }, function(error) {
+            console.log("失敗です")
+        });
+    };
+
     return (
         <div>
             <div>
@@ -30,22 +44,24 @@ export const Delete = () => {
                         <button class="btn btn-primary me-5" type="submit">登録</button>
                     </div>
                 </nav>
-                <dl class="list-unstyled">
-                    <dt class="col-md-8 border text-center m-auto mt-4 p-2 d-flex">
-                        <span class="col-md10 m-auto">登録内容</span>
-                    </dt>
-                    <dd class="col-md-8 border m-auto p-2">
-                        <p class="text-center">内容削除</p>
-                        <div class="text-center">
-                            <div class="col-md-11 m-auto mt-4 mb-1">
-                                <h5>{todos.name}</h5>  
-                                <p className="text-center">{todos.content}</p>
+                <form method="get" onSubmit={handleSubmit}>
+                    <dl class="list-unstyled">
+                        <dt class="col-md-8 border text-center m-auto mt-4 p-2 d-flex">
+                            <span class="col-md10 m-auto">登録内容</span>
+                        </dt>
+                        <dd class="col-md-8 border m-auto p-2">
+                            <p class="text-center">内容削除</p>
+                            <div class="text-center">
+                                <div class="col-md-11 m-auto mt-4 mb-1">
+                                    <h5>{todos.name}</h5>  
+                                    <p className="text-center">{todos.content}</p>
+                                </div>
+                                <Link class="btn btn-secondary btn-sm m-3" to="/">戻る</Link>
+                                <button class="btn btn-secondary btn-sm m-3" type="submit">削除</button>
                             </div>
-                            <Link class="btn btn-secondary btn-sm m-3" to="/">戻る</Link>
-                            <button class="btn btn-secondary btn-sm m-3" type="submit">削除</button>
-                        </div>
-                    </dd>
-                </dl>
+                        </dd>
+                    </dl>
+                </form>
             </div>
         </div>
         )
