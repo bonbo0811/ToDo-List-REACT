@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { useState, ChangeEventHandler, FormEventHandler } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 
 const Register = () => {
     const [name, setname] = useState("");
     const [content, setcontent] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,6 +26,7 @@ const Register = () => {
         }, function(error) {
             console.log("失敗です")
         });
+        navigate("/");
     };
 
     const handleChangeContentName = (e) => {
