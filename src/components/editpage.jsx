@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export const Edit = () => {
 	const [todos, setTodo] = useState([]);
@@ -8,6 +9,7 @@ export const Edit = () => {
     const searchNo = id ;
     const [name, setname] = useState("");
     const [content, setcontent] = useState("");
+    const navigate = useNavigate();
 
 	useEffect(() => {
 		// APIをfetchする(呼び出す)
@@ -24,11 +26,6 @@ export const Edit = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        // console.log({
-        //     id,
-        //     name,
-        //     content,
-        // });
         // POST送信
             const query_params = new URLSearchParams(searchNo); 
             fetch('http://localhost:8080/todo/edit/' + searchNo, {
@@ -40,13 +37,13 @@ export const Edit = () => {
                 id:id, 
                 name: name,
                 content: content,
-            })  
-
+            }) 
         }).then(function(response) {
             console.log("成功しました")
         }, function(error) {
             console.log("失敗です")
         });
+        navigate("/");
     }
 
         const handleChangeContentName = (e) => {

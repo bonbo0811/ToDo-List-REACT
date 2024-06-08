@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export const Delete = () => {
 	const [todos, setTodo] = useState([]);
     const { id } = useParams();
     const searchNo = id ;
+    const navigate = useNavigate();
     
 
 	useEffect(() => {
@@ -33,6 +35,7 @@ export const Delete = () => {
         }, function(error) {
             console.log("失敗です")
         });
+        navigate("/");
     };
 
     return (
