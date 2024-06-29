@@ -73,10 +73,10 @@ export const Edit = () => {
                                 <p class="text-center">内容登録</p>
                                 <div class="text-center mt-4 mb-1">
                                     <div class="m-auto col-sm-11 mb-3">
-                                        <input type="text" class="form-control" value={name} onChange={handleChangeContentName}  placeholder={todos.name}></input>
+                                        <input type="text" class="form-control" value={name} onChange={handleChangeContentName}  placeholder={todos.name} required></input>
                                     </div>
                                     <div class="col-md-11 m-auto mb-1">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" value={content} onChange={handleChangeContent}  placeholder={todos.content} rows="6"></textarea>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" value={content} onChange={handleChangeContent}  placeholder={todos.content} rows="6" required></textarea>
                                     </div>
                                     <Link class="btn btn-secondary btn-sm m-3" to="/">戻る</Link>
                                     <button class="btn btn-secondary btn-sm m-3" type="submit">編集</button>
