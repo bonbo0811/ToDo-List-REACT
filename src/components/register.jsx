@@ -9,6 +9,11 @@ const Register = () => {
     const [content, setcontent] = useState("");
     const navigate = useNavigate();
 
+    const validationRule ={
+        required : "登録名を入力してください。",
+    }
+    
+
     const handleSubmit = (e) => {
         e.preventDefault();
           // POST送信
@@ -55,13 +60,13 @@ const Register = () => {
                             <p class="text-center">登録名</p>
                             <div class="text-center">
                                 <div class="col-md-11 m-auto mb-1">
-                                    <input class="form-control" type="Text" placeholder="例：勉強" value={name} onChange={handleChangeContentName}></input>
+                                    <input class="form-control" type="Text" placeholder="例：勉強" value={name} onChange={handleChangeContentName} required></input>
                                 </div>
                             </div>
                             <p class="text-center">新規登録</p>
                                 <div class="text-center">
                                 <div class="col-md-11 m-auto mb-1">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" value={content} onChange={handleChangeContent} placeholder="内容テーブルに追加するデータを記入する" rows="6"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" value={content} onChange={handleChangeContent} placeholder="内容テーブルに追加するデータを記入する" rows="6" required></textarea>
                                 </div>
                                 <Link class="btn btn-secondary btn-sm m-3" to="/">戻る</Link>
                                 <button class="btn btn-secondary btn-sm m-3" type="submit" >登録</button>
